@@ -26,7 +26,8 @@ public class FranchiseUseCase {
     }
     
     private ApiResponseDTO<FranchiseResponseDTO> toResponse(Franchise saved) {
-        var response = new ApiResponseDTO<>(true,"Sucess information to Franchise",new FranchiseResponseDTO(saved.getName(),saved.getDescription()));
+        var response = new ApiResponseDTO<>(true,"Sucess information to Franchise",
+                new FranchiseResponseDTO(saved.getIdFranchise(), saved.getName(),saved.getDescription()));
         return response;
     }
  
@@ -39,13 +40,13 @@ public class FranchiseUseCase {
             .orElseThrow(() -> new FranchiseNotFoundException("Error creating franchise"));
     }
     
-    public ApiResponseDTO<Void> updateFranchiseForName(Long id,String name){
+    public ApiResponseDTO<FranchiseResponseDTO> updateFranchiseForName(FranchiseResponseDTO model){
         
-        if(name.isBlank()) throw new FranchiseNotFoundException("Params name not valid");
+        if(model.name().isBlank()) throw new FranchiseNotFoundException("Params name not valid");
         
-        repository.GetAllFranchiseForId(id)
+        repository.GetAllFranchiseForId(model.idFranchise())
                   .map(s -> {
-                      s.setName(name);
+                      s.setName(model.name());
                      return s;
                     })
                    .map(repository::save)

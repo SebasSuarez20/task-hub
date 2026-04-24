@@ -1,0 +1,122 @@
+========================================
+        API REST - GESTIÓN DE FRANQUICIAS
+========================================
+
+Base URL:
+http://localhost:8080/api/v1
+
+
+========================================
+            🏢 SUCURSALES (BRANCH)
+========================================
+
+[GET] /branch/{idFranchise}/top-products
+Descripción:
+Obtiene los productos con mayor stock por sucursal dentro de una franquicia.
+
+Parámetros:
+- idFranchise (int): ID de la franquicia
+
+
+----------------------------------------
+
+[POST] /branch
+Descripción:
+Crea una nueva sucursal.
+
+Body:
+{
+  "name": "Sucursal Centro",
+  "address": "Calle 123 #45-67",
+  "id_franchise": 2
+}
+
+Respuesta:
+{
+  "message": "Sucursal creada correctamente"
+}
+
+
+----------------------------------------
+
+[PUT] /branch/update-name
+Descripción:
+Actualiza el nombre de una sucursal.
+
+Body:
+{
+  "id_branch": 1,
+  "name": "Nuevo nombre sucursal"
+}
+
+
+========================================
+              📦 PRODUCTOS
+========================================
+
+[POST] /product
+Descripción:
+Crea un nuevo producto asociado a una sucursal.
+
+Body:
+{
+  "name": "Proteína Whey",
+  "description": "Proteína de alta calidad",
+  "price": 120000,
+  "stock": 50,
+  "id_branch": 1
+}
+
+Nota:
+- Usar siempre "price" y "stock" en minúscula.
+
+
+----------------------------------------
+
+[PUT] /product/update-stock
+Descripción:
+Actualiza el stock de un producto.
+
+Body:
+{
+  "id_product": 1,
+  "stock": 100
+}
+
+
+----------------------------------------
+
+[DELETE] /product/{idProduct}/branch/{idBranch}
+Descripción:
+Elimina un producto de una sucursal.
+
+Ejemplo:
+DELETE /product/10/branch/2
+
+
+========================================
+            🏬 FRANQUICIAS
+========================================
+
+[POST] /franchises
+Descripción:
+Crea una nueva franquicia.
+
+Body:
+{
+  "name": "NutriExpress",
+  "description": "Venta de suplementos deportivos"
+}
+
+
+----------------------------------------
+
+[PUT] /franchises/update-name
+Descripción:
+Actualiza el nombre de una franquicia.
+
+Body:
+{
+  "idFranchise": 1,
+  "name": "Nuevo nombre"
+}

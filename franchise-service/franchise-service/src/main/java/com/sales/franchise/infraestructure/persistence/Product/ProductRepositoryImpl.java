@@ -22,10 +22,4 @@ public class ProductRepositoryImpl implements ProductRepositoryPort{
     public Optional<Product> GetAllProductForId(Long id) {
        return jpaRepository.findById(id);
     }
-    
-    public Product filterInformationProductForId(Long idProduct){
-       return jpaRepository.findById(idProduct).
-                orElseThrow(() -> new RuntimeException("Product not found"));
-    }
-
 }

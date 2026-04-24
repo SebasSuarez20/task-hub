@@ -28,7 +28,4 @@ public class FranchiseRepositoryImpl implements FranchiseRepositoryPort{
     public Optional<Franchise> GetAllFranchiseForId(Long id) {
         return jpaRepository.findById(id);
     }
-
-    
-    
 }

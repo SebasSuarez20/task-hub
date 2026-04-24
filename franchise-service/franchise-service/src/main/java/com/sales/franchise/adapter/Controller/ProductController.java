@@ -4,7 +4,6 @@ package com.sales.franchise.adapter.Controller;
 import com.sales.franchise.application.dto.ApiResponseDTO;
 import com.sales.franchise.application.dto.ProductResponseDTO;
 import com.sales.franchise.application.usecase.ProductUseCase;
-import com.sales.franchise.domain.exception.ProductNotFoundException;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -30,7 +29,7 @@ public class ProductController {
         return response;
     }
     
-    @PutMapping("updateStock")
+    @PutMapping("updateForStock")
     public ApiResponseDTO<ProductResponseDTO> update(@RequestBody ProductResponseDTO model) {
         return service.updateProductForStock(model);
     }

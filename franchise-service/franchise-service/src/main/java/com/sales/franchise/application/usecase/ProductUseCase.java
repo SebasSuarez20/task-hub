@@ -2,7 +2,6 @@ package com.sales.franchise.application.usecase;
 
 import com.sales.franchise.application.dto.ApiResponseDTO;
 import com.sales.franchise.application.dto.ProductResponseDTO;
-import com.sales.franchise.domain.Exception.FranchiseNotFoundException;
 import com.sales.franchise.domain.exception.ProductNotFoundException;
 import com.sales.franchise.domain.model.Branch;
 import com.sales.franchise.domain.model.Product;
@@ -106,6 +105,7 @@ public class ProductUseCase {
         
         return new ApiResponseDTO<>(true,"Product update for column name",null);
     }
+     
     
     
 

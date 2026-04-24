@@ -2,8 +2,8 @@
 package com.sales.franchise.infraestructure.persistence.Branch;
 
 import com.sales.franchise.domain.model.Branch;
-import com.sales.franchise.domain.model.Franchise;
 import com.sales.franchise.domain.port.BranchRepositoryPort;
+import java.util.List;
 import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
@@ -28,5 +28,9 @@ public class BranchRepositoryImpl implements BranchRepositoryPort{
     public Optional<Branch> GetAllBranchForId(Long id) {
        return jpaRepository.findById(id);
     }
-     
+
+    @Override
+    public List<Branch> GetAllBranchForFranchise(Long id) {
+        return jpaRepository.findByFranchise_IdFranchise(id);
+    }
 }

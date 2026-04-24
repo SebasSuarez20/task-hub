@@ -30,6 +30,11 @@ public class Product extends BaseEntity{
 
     @Column(nullable = false)
     private Integer stock;
+    
+       
+     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idBranch", nullable = false)
+    private Branch branch;
 
     public Branch getBranch() {
         return branch;
@@ -38,10 +43,7 @@ public class Product extends BaseEntity{
     public void setBranch(Branch branch) {
         this.branch = branch;
     }
-    
-     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "idBranch", nullable = false)
-    private Branch branch;
+ 
 
     public Long getIdProduct() {
         return IdProduct;

@@ -4,7 +4,6 @@ package com.sales.franchise.adapter.Controller;
 import com.sales.franchise.application.usecase.FranchiseUseCase;
 import com.sales.franchise.application.dto.ApiResponseDTO;
 import com.sales.franchise.application.dto.FranchiseResponseDTO;
-import com.sales.franchise.application.dto.ProductResponseDTO;
 import org.springframework.web.bind.annotation.*;
 
 

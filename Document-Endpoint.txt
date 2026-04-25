@@ -63,7 +63,7 @@ Body:
   "name": "Proteína Whey",
   "description": "Proteína de alta calidad",
   "price": 120000,
-  "stock": 50,
+  "Stock": 50,
   "id_branch": 1
 }
 

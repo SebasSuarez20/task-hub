@@ -70,6 +70,7 @@ public class ProductUseCase {
         
         repository.GetAllProductForId(model.id_product())
                    .map(s -> {
+                      if(!s.getEnabled()) throw new ProductNotFoundException("Product not found for modify");
                       s.setStock(model.Stock());
                     return s;
                    })

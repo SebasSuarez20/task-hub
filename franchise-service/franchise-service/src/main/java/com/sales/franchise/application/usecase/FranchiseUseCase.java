@@ -46,6 +46,7 @@ public class FranchiseUseCase {
         
         repository.GetAllFranchiseForId(model.idFranchise())
                   .map(s -> {
+                       if(!s.getEnabled()) throw new FranchiseNotFoundException("Product not found for modify");
                       s.setName(model.name());
                      return s;
                     })

@@ -5,6 +5,7 @@ import com.sales.franchise.application.dto.ApiResponseDTO;
 import com.sales.franchise.application.dto.ProductResponseDTO;
 import com.sales.franchise.application.usecase.ProductUseCase;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -23,6 +24,11 @@ public class ProductController {
         this.service = service;
     }
       
+    @GetMapping("v1")
+    public String test() {
+        return "API funcionando 🚀 - versión 1";
+    }
+
        @PostMapping
     public ApiResponseDTO<ProductResponseDTO> create(@RequestBody ProductResponseDTO model) {
         var response = service.save(model);

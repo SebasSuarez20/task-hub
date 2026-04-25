@@ -24,8 +24,8 @@ resource "aws_security_group" "db_sg" {
 }
 
 # 🗄️ RDS MySQL
-resource "aws_db_instance" "taskhub_db_v1_0" {
-  identifier = "taskhub-db-v1-0"
+resource "aws_db_instance" "taskhub_db" {
+  identifier = "taskhub-db"
 
   engine         = "mysql"
   engine_version = "8.0"

@@ -23,12 +23,7 @@ public class ProductController {
       public ProductController(ProductUseCase service) {
         this.service = service;
     }
-      
-    @GetMapping("v1")
-    public String test() {
-        return "API funcionando 🚀 - versión 2";
-    }
-
+    
        @PostMapping
     public ApiResponseDTO<ProductResponseDTO> create(@RequestBody ProductResponseDTO model) {
         var response = service.save(model);

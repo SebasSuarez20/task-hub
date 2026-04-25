@@ -1,0 +1,43 @@
+name: Deploy Backend Test
+
+on:
+  push:
+    branches: [ Test ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v3
+
+      - name: Configurar Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Build con Maven
+        run: mvn clean package -DskipTests
+
+      - name: Login en Docker Hub
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USER }}" --password-stdin
+
+      - name: Build imagen Docker
+        run: docker build -t ${{ secrets.DOCKER_USER }}/franchise-service .
+
+      - name: Push a Docker Hub
+        run: docker push ${{ secrets.DOCKER_USER }}/franchise-service
+
+      - name: Deploy en EC2
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ec2-user
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            docker pull ${{ secrets.DOCKER_USER }}/franchise-service
+            docker stop $(docker ps -q) || true
+            docker rm $(docker ps -aq) || true
+            docker run -d -p 8080:8080 --env-file .env ${{ secrets.DOCKER_USER }}/franchise-service

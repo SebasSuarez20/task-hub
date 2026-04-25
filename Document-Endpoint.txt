@@ -39,7 +39,7 @@ Respuesta:
 
 ----------------------------------------
 
-[PUT] /branch/update-name
+[PUT] /branch/updateBranchForName
 Descripción:
 Actualiza el nombre de una sucursal.
 
@@ -83,15 +83,26 @@ Body:
   "stock": 100
 }
 
+[PUT] /product/updateForProductName
+Descripción:
+Actualiza el nombre de un producto.
+
+Body:
+{
+  "id_product": 1,
+  "name": "Nuevo nombre sucursal"
+}
+
+
 
 ----------------------------------------
 
-[DELETE] /product/{idProduct}/branch/{idBranch}
+[DELETE] /product/{idProduct}/{idBranch}
 Descripción:
 Elimina un producto de una sucursal.
 
 Ejemplo:
-DELETE /product/10/branch/2
+DELETE /product/10/2
 
 
 ========================================
@@ -111,7 +122,7 @@ Body:
 
 ----------------------------------------
 
-[PUT] /franchises/update-name
+[PUT] /franchises/updateForFranchise
 Descripción:
 Actualiza el nombre de una franquicia.
 

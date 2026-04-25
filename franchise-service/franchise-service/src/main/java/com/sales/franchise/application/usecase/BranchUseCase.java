@@ -64,6 +64,7 @@ public class BranchUseCase {
         
         repository.GetAllBranchForId(model.id_branch())
                   .map(s -> {
+                      if(!s.getEnabled()) throw new BranchNotFoundException("Product not found for modify");
                       s.setName(model.name());
                      return s;
                     })
@@ -75,7 +76,9 @@ public class BranchUseCase {
     
    public ApiResponseDTO<List<ProductTopResponseDTO>> getTopProductsByFranchise(Long id){
        
-       var response = repository.GetAllBranchForFranchise(id);
+       var response = repository.GetAllBranchForFranchise(id).stream().filter(s-> {
+         return s.getEnabled();
+       }).toList();
        
        if (response == null || response.isEmpty()) {
            return new ApiResponseDTO<>(false, "No branches found for this franchise", List.of());

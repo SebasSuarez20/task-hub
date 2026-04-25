@@ -92,5 +92,13 @@ Se integró Terraform para gestionar la infraestructura de bases de datos en AWS
 ### Variables de Entorno
 Para garantizar la seguridad, las credenciales de AWS (usuario y contraseña) se manejan como variables de entorno y no se incluyen directamente en el código fuente.
 
+## Acceso al Sistema Backend
+
+El sistema backend está desplegado en un servidor AWS EC2 y puede ser accedido para pruebas mediante la siguiente URL:
+
+- **URL de Pruebas**: [http://18.219.163.168:8080/](http://18.219.163.168:8080/)
+
+En el futuro, se podría configurar un dominio personalizado para un acceso más profesional, pero actualmente esta URL está destinada únicamente para pruebas.
+
 ## Contribuciones
 Se aceptan contribuciones siguiendo las reglas del flujo GitFlow. Por favor, asegúrate de que tu código esté probado y documentado antes de enviar un pull request.

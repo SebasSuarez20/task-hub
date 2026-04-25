@@ -3,7 +3,7 @@ package com.sales.franchise.application.usecase;
 
 import com.sales.franchise.application.dto.ApiResponseDTO;
 import com.sales.franchise.application.dto.FranchiseResponseDTO;
-import com.sales.franchise.domain.Exception.FranchiseNotFoundException;
+import com.sales.franchise.domain.exception.FranchiseNotFoundException;
 import com.sales.franchise.domain.model.Franchise;
 import com.sales.franchise.domain.port.FranchiseRepositoryPort;
 import java.util.Optional;

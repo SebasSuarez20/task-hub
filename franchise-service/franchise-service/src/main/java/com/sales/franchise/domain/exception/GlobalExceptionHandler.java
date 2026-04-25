@@ -1,5 +1,5 @@
 
-package com.sales.franchise.domain.Exception;
+package com.sales.franchise.domain.exception;
 import com.sales.franchise.application.dto.ApiResponseDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

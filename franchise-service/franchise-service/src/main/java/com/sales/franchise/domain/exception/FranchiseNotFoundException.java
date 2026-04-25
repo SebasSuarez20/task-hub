@@ -1,5 +1,5 @@
 
-package com.sales.franchise.domain.Exception;
+package com.sales.franchise.domain.exception;
 
 public class FranchiseNotFoundException extends RuntimeException {
 

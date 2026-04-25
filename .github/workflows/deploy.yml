@@ -19,12 +19,14 @@ jobs:
           java-version: '17'
 
       - name: Build con Maven
+        working-directory: franchise-service/franchise-service
         run: mvn clean package -DskipTests
 
       - name: Login en Docker Hub
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USER }}" --password-stdin
 
       - name: Build imagen Docker
+        working-directory: franchise-service/franchise-service
         run: docker build -t ${{ secrets.DOCKER_USER }}/franchise-service .
 
       - name: Push a Docker Hub

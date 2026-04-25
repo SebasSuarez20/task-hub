@@ -93,12 +93,12 @@ public class ProductUseCase {
         return new ApiResponseDTO<>(true,"Product deleted",null);
     }
     
-       public ApiResponseDTO<Void> updateProductForName(long idProduct,String name){
+    public ApiResponseDTO<ProductResponseDTO> updateProductForName( ProductResponseDTO model){
         
-           if(name.isBlank()) throw new ProductNotFoundException("Params name not valid");
-        repository.GetAllProductForId(idProduct)
+           if(model.name().isBlank()) throw new ProductNotFoundException("Params name not valid");
+        repository.GetAllProductForId(model.id_product())
                   .map(s -> {
-                      s.setName(name);
+                      s.setName(model.name());
                      return s;
                   })
                   .map(repository::save)

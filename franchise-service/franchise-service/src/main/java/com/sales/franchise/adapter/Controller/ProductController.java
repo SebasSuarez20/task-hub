@@ -39,4 +39,9 @@ public class ProductController {
     public ApiResponseDTO<Void> delete(@PathVariable Long idProduct,@PathVariable Long idBranch) {
         return service.deleteProduct(idProduct,idBranch);
     }
+    
+     @PutMapping("updateForProductName")
+    public ApiResponseDTO<ProductResponseDTO> updateForName(@RequestBody ProductResponseDTO model) {
+        return service.updateProductForName(model);
+    }
 }

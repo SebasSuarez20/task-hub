@@ -94,7 +94,3 @@ Para garantizar la seguridad, las credenciales de AWS (usuario y contraseña) se
 
 ## Contribuciones
 Se aceptan contribuciones siguiendo las reglas del flujo GitFlow. Por favor, asegúrate de que tu código esté probado y documentado antes de enviar un pull request.
-
----
-
-¡Gracias por tu interés en este proyecto! Si tienes preguntas o sugerencias, no dudes en abrir un issue o contactarme.

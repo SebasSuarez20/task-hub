@@ -1,4 +1,4 @@
-use franchise;
+
 INSERT INTO franchises (name, description, enabled, created_at)
 VALUES
 ('Franchise A', 'Fast food chain', 1, NOW()),

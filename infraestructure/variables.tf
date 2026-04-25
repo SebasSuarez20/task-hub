@@ -5,16 +5,16 @@ variable "region" {
 
 variable "db_name" {
   description = "Database name"
-  default     = "taskHubDb"
-  
+  default     = "db_information_franchise_v1_0"
+
 }
 
 variable "db_user" {
   description = "Database username"
-  default     = "root"
+  default     = "admin"
 }
 
 variable "db_password" {
   description = "Database password"
-  default     = "admin12345!.<"
+  default     = "admin12345!"
 }

@@ -6,6 +6,7 @@ variable "region" {
 variable "db_name" {
   description = "Database name"
   default     = "taskHubDb"
+  
 }
 
 variable "db_user" {

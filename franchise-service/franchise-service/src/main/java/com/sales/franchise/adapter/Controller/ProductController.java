@@ -26,7 +26,7 @@ public class ProductController {
       
     @GetMapping("v1")
     public String test() {
-        return "API funcionando 🚀 - versión 1";
+        return "API funcionando 🚀 - versión 2";
     }
 
        @PostMapping

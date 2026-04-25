@@ -4,7 +4,7 @@ provider "aws" {
 
 # 🔐 Security Group para MySQL
 resource "aws_security_group" "db_sg" {
-  name        = "taskhub-db-sg"
+  name        = "taskhub-db-sg-hub"
   description = "Allow MySQL access"
 
   ingress {
@@ -24,8 +24,8 @@ resource "aws_security_group" "db_sg" {
 }
 
 # 🗄️ RDS MySQL
-resource "aws_db_instance" "taskhub_db" {
-  identifier = "taskhub-db"
+resource "aws_db_instance" "taskhub_db_v1_0" {
+  identifier = "taskhub-db-v1-0"
 
   engine         = "mysql"
   engine_version = "8.0"
@@ -43,6 +43,6 @@ resource "aws_db_instance" "taskhub_db" {
   skip_final_snapshot = true
 
   tags = {
-    Name = "TaskHubDB"
+    Name = "HubFranchise"
   }
 }

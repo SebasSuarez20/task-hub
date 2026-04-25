@@ -73,7 +73,7 @@ Nota:
 
 ----------------------------------------
 
-[PUT] /product/update-stock
+[PUT] /product/updateForStock
 Descripción:
 Actualiza el stock de un producto.
 

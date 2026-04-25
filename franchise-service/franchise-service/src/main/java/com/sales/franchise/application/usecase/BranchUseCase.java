@@ -76,9 +76,7 @@ public class BranchUseCase {
     
    public ApiResponseDTO<List<ProductTopResponseDTO>> getTopProductsByFranchise(Long id){
        
-       var response = repository.GetAllBranchForFranchise(id).stream().filter(s-> {
-         return s.getEnabled();
-       }).toList();
+       var response = repository.GetAllBranchForFranchise(id);
        
        if (response == null || response.isEmpty()) {
            return new ApiResponseDTO<>(false, "No branches found for this franchise", List.of());
@@ -86,6 +84,7 @@ public class BranchUseCase {
        
        List<ProductTopResponseDTO> maxForBranch = response.stream()
                .map(branch -> branch.getProducts().stream()
+               .filter(Product::getEnabled)
                .max(Comparator.comparing(Product::getStock))
                .map(p->{ return new ProductTopResponseDTO(p.getName(),p.getStock(),p.getBranch().getName());})
                .orElse(null)
